@@ -9,6 +9,7 @@ public class GameWin extends JFrame {
 
     Bg bg = new Bg();
     Line line = new Line();
+    Gold gold = new Gold();
     void launch(){
         this.setVisible(true);
         this.setSize(768,1000);
@@ -39,6 +40,7 @@ public class GameWin extends JFrame {
     public void paint(Graphics g) {
         bg.paintSelf(g);
         line.paintSelf(g);
+        gold.paintSelf(g);
     }
 
     public static void main(String[] args) {
