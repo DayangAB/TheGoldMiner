@@ -2,11 +2,6 @@ package com.fzy;
 
 import java.awt.*;
 
-/**
- * @Author Dayang
- * @Date 2021/8/8
- * @Version 1.0
- */
 public class Bg {
     Image bg = Toolkit.getDefaultToolkit().getImage("imgs/bg.jpg");
     Image bg1 = Toolkit.getDefaultToolkit().getImage("imgs/bg1.jpg");

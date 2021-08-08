@@ -3,12 +3,8 @@ package com.fzy;
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * @Author Dayang
- * @Date 2021/8/8
- * @Version 1.0
- */
 public class GameWin extends JFrame {
+
     Bg bg = new Bg();
     Line line = new Line();
     void launch(){
@@ -17,6 +13,16 @@ public class GameWin extends JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("尚学堂黄金矿工");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        while (true){
+            repaint();
+
+            try {
+                Thread.sleep(10);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @Override
