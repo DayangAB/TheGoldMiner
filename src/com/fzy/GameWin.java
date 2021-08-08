@@ -10,6 +10,7 @@ import java.awt.*;
  */
 public class GameWin extends JFrame {
     Bg bg = new Bg();
+    Line line = new Line();
     void launch(){
         this.setVisible(true);
         this.setSize(768,1000);
@@ -21,6 +22,7 @@ public class GameWin extends JFrame {
     @Override
     public void paint(Graphics g) {
         bg.paintSelf(g);
+        line.paintSelf(g);
     }
 
     public static void main(String[] args) {
