@@ -2,6 +2,8 @@ package com.fzy;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GameWin extends JFrame {
 
@@ -12,11 +14,19 @@ public class GameWin extends JFrame {
         this.setSize(768,1000);
         this.setLocationRelativeTo(null);
         this.setTitle("尚学堂黄金矿工");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                if(e.getButton()==1)
+                {line.state=1;}
+            }
+        });
 
         while (true){
             repaint();
-
             try {
                 Thread.sleep(10);
             } catch (InterruptedException e) {
