@@ -14,6 +14,7 @@ public class Rock extends Object{
         this.width=71;
         this.height=71;
         this.flag=false;
+        this.m =150;
         this.img = Toolkit.getDefaultToolkit().getImage("imgs/rock1.png");
     }
 }

@@ -10,6 +10,25 @@ public class Gold extends Object {
         this.width=52;
         this.height=52;
         this.flag=false;
+        this.m =80;
         this.img = Toolkit.getDefaultToolkit().getImage("imgs/gold1.gif");
+    }
+}
+
+class GoldMini extends Gold{
+    GoldMini(){
+        this.width =36;
+        this.height =36;
+        this.m =15;
+        this.img =Toolkit.getDefaultToolkit().getImage("imgs/gold0.gif");
+    }
+}
+class GoldPlus extends Gold{
+    GoldPlus(){
+        this.x = (int) (Math.random() *650);
+        this.width =105;
+        this.height =105;
+        this.m =60;
+        this.img =Toolkit.getDefaultToolkit().getImage("imgs/gold2.gif");
     }
 }

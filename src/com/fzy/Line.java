@@ -50,7 +50,7 @@ public class Line {
                 lines(g);
                 break;
             case 1:
-                if(length<500){
+                if(length<800){
                     length=length+10;
                     lines(g);
                 }else {state=2;}
@@ -64,11 +64,13 @@ public class Line {
                 }
                 break;
             case 3:
+                int m =1;
                 if(length>100){
                     length=length-10;
                     lines(g);
                     for(Object obj:this.frame.objectList){
                         if(obj.flag){
+                            m =obj.m;
                             obj.x=endx-obj.getWidth()/2;
                             obj.y=endy;
                             if(length<=100){
@@ -80,6 +82,11 @@ public class Line {
                         }
 
                     }
+                }
+                try {
+                    Thread.sleep(m);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
                 break;
 

@@ -13,6 +13,8 @@ public class Object {
     Image img;
     //标记,是否能移动
     boolean flag;
+    //质量
+    int m;
 
     void paintSelf(Graphics g){
         g.drawImage(img,x,y,null);
