@@ -16,14 +16,33 @@ public class GameWin extends JFrame {
 
 
     {
+        //是否可以放置
+        boolean isPlace = true;
+
         for (int i = 0; i < 11; i++) {
             double random =Math.random();
-            if(random <0.3){objectList.add(new GoldMini());}
-            else if(random <0.7){objectList.add(new Gold());}
-            else {objectList.add(new GoldPlus());}
+            Gold gold;
+            if(random <0.3){gold = new GoldMini();}
+            else if(random <0.7){gold = new Gold();}
+            else {gold = new GoldPlus();}
+
+            for (Object obj:objectList){
+                if(gold.getRec().intersects(obj.getRec())){
+                    //不可放置，需要重新生成
+                    isPlace = false;
+                }
+            }
+            if(isPlace){objectList.add(gold);}
+            else {isPlace =true;    i--;}
         }
-        for (int i = 0; i < 3; i++) {
-            objectList.add(new Rock());
+        for (int i = 0; i < 5; i++) {
+            Rock rock = new Rock();
+            for (Object obj:objectList){
+                if(rock.getRec().intersects(obj.getRec()))
+                    {isPlace = false;}
+            }
+            if (isPlace){   objectList.add(rock);}
+            else {  isPlace =true;  i--;}
         }
     }
 
@@ -61,13 +80,13 @@ public class GameWin extends JFrame {
         Graphics gImage = offScreenImage.getGraphics();
 
         bg.paintSelf(gImage);
-        line.paintSelf(gImage);
 
         for(Object obj:objectList)
         {
             obj.paintSelf(gImage);
         }
 
+        line.paintSelf(gImage);
         g.drawImage(offScreenImage,0,0,null);
     }
 

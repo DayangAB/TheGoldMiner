@@ -23,4 +23,8 @@ public class Object {
     public int getWidth(){
         return width;
     }
+    //获取矩形
+    public Rectangle getRec(){
+        return new Rectangle(x,y,width,height);
+    }
 }
