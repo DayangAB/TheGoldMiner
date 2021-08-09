@@ -87,6 +87,8 @@ public class Line {
                                 obj.x =-150;
                                 obj.y =-150;
                                 obj.flag=false;
+                                //积分累计
+                                Bg.count = Bg.count + obj.count;
                                 state=0;
                             }
                         }

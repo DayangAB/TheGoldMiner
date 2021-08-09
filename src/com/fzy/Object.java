@@ -15,6 +15,8 @@ public class Object {
     boolean flag;
     //质量
     int m;
+    //积分
+    int count;
 
     void paintSelf(Graphics g){
         g.drawImage(img,x,y,null);

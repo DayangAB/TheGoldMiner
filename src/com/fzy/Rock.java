@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * @Author Dayang
  * @Date 2021/8/9
- * @Version 1.0
+ * @Version 1.7
  */
 public class Rock extends Object{
     Rock(){
@@ -15,6 +15,7 @@ public class Rock extends Object{
         this.height=71;
         this.flag=false;
         this.m =150;
+        this.count =1;
         this.img = Toolkit.getDefaultToolkit().getImage("imgs/rock1.png");
     }
 }
