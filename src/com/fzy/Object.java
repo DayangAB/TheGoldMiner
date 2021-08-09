@@ -11,8 +11,14 @@ public class Object {
     int height;
     //图片
     Image img;
+    //标记,是否能移动
+    boolean flag;
 
     void paintSelf(Graphics g){
         g.drawImage(img,x,y,null);
+    }
+
+    public int getWidth(){
+        return width;
     }
 }

@@ -4,12 +4,28 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameWin extends JFrame {
 
+    //存储金块,石块
+    List<Object> objectList = new ArrayList<>();
     Bg bg = new Bg();
-    Line line = new Line();
-    Gold gold = new Gold();
+    Line line = new Line(this);
+
+
+    {
+        for (int i = 0; i < 3; i++) {
+            objectList.add(new Gold());
+        }
+        for (int i = 0; i < 3; i++) {
+            objectList.add(new Rock());
+        }
+    }
+
+    Image offScreenImage;
+
     void launch(){
         this.setVisible(true);
         this.setSize(768,1000);
@@ -38,9 +54,18 @@ public class GameWin extends JFrame {
 
     @Override
     public void paint(Graphics g) {
-        bg.paintSelf(g);
-        line.paintSelf(g);
-        gold.paintSelf(g);
+        offScreenImage = this.createImage(768,1000);
+        Graphics gImage = offScreenImage.getGraphics();
+
+        bg.paintSelf(gImage);
+        line.paintSelf(gImage);
+
+        for(Object obj:objectList)
+        {
+            obj.paintSelf(gImage);
+        }
+
+        g.drawImage(offScreenImage,0,0,null);
     }
 
     public static void main(String[] args) {

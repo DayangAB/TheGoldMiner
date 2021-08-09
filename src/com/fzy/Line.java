@@ -14,9 +14,23 @@ public class Line {
     double n = 0;
     //方向
     int dir = 1;
-    //状态 0 摇摆 1 抓取 2 收回
+    //状态 0 摇摆 1 抓取 2 收回 3 抓取返回
     int state;
 
+    GameWin frame;
+
+    Line(GameWin frame){this.frame=frame;}
+
+    void logic(){
+        for(Object obj:this.frame.objectList){
+            if(endx>obj.x && endx<obj.x+obj.width
+                    && endy>obj.y && endy< obj.y+obj.height){
+                state=3;
+                obj.flag=true;
+            }
+        }
+
+    }
 
     void lines(Graphics g){
         endx = (int) (x +length*Math.cos(n* Math.PI));
@@ -27,7 +41,7 @@ public class Line {
 
 
     void paintSelf(Graphics g){
-
+        logic();
         switch (state){
             case 0:
                 if(n<0.1){ dir = 1;}
@@ -48,7 +62,26 @@ public class Line {
                 }else {
                     state=0;
                 }
+                break;
+            case 3:
+                if(length>100){
+                    length=length-10;
+                    lines(g);
+                    for(Object obj:this.frame.objectList){
+                        if(obj.flag){
+                            obj.x=endx-obj.getWidth()/2;
+                            obj.y=endy;
+                            if(length<=100){
+                                obj.x=-150;
+                                obj.y=-150;
+                                obj.flag=false;
+                                state=0;
+                            }
+                        }
 
+                    }
+                }
+                break;
 
 
 
